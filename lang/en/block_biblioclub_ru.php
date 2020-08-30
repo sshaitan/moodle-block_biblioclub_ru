@@ -15,26 +15,26 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Authentication on znanium.com
+ * Authentication on biblioclub.ru
  *
- * @package    block_znanium_com
- * @copyright  2014 Vadim Dvorovenko
+ * @package    block_biblioclub_ru
+ * @copyright  2020 Pavel Lobanov
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-$string['defaultlink'] = 'Go to Znanium digital library';
-$string['defaulttitle'] = 'Znanium';
+$string['defaultlink'] = 'Go to Biblioclub.ru digital library';
+$string['defaulttitle'] = 'Biblioclub';
 $string['domain'] = 'Domain';
-$string['eventlinkused'] = 'Znanium digital library visited';
+$string['eventlinkused'] = 'Biblioclub digital library visited';
 $string['link'] = 'Link text';
 $string['month'] = 'Month';
-$string['pluginname'] = 'Authentication on Znanium digital library site';
+$string['pluginname'] = 'Authentication on Biblioclub digital library site';
 $string['privacy:metadata'] = 'The plugin does not store any personal data.';
 $string['secretkey'] = 'Secret key';
 $string['statistics'] = 'Statistics';
 $string['title'] = 'Block title';
 $string['visits'] = 'Visits count';
-$string['znanium_com:addinstance'] = 'Add a new Znanium digital library block';
-$string['znanium_com:myaddinstance'] = 'Add a new Znanium digital library block to home page';
-$string['znanium_com:use'] = 'Use block to visit Znanium digital library';
-$string['znanium_com:viewstats'] = 'View visits statistics';
+$string['biblioclub_ru:addinstance'] = 'Add a new Biblioclub digital library block';
+$string['biblioclub_ru:myaddinstance'] = 'Add a new Biblioclub digital library block to home page';
+$string['biblioclub_ru:use'] = 'Use block to visit Biblioclub digital library';
+$string['biblioclub_ru:viewstats'] = 'View visits statistics';

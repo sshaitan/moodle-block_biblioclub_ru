@@ -15,17 +15,17 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Authentication on znanium.com
+ * Authentication on biblioclub.ru
  *
- * @package    block_znanium_com
- * @copyright  2014 Vadim Dvorovenko
+ * @package    block_biblioclub_ru
+ * @copyright  2020 Pavel Lobanov
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->component = 'block_znanium_com';    // Full name of the plugin (used for diagnostics).
-$plugin->version   = 2020060602;             // The current plugin version (Date: YYYYMMDDXX).
+$plugin->component = 'block_biblioclub_ru';    // Full name of the plugin (used for diagnostics).
+$plugin->version   = 2020083102;             // The current plugin version (Date: YYYYMMDDXX).
 $plugin->requires  = 2014051200;             // Requires this Moodle version.
 $plugin->maturity = MATURITY_STABLE;         // Maturity level of this plugin version.
-$plugin->release = '2020-06-06';             // Human readable version name.
+$plugin->release = '2020-08-31';             // Human readable version name.

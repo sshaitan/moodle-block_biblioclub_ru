@@ -15,10 +15,10 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Authentication on znanium.com
+ * Authentication on biblioclub.ru
  *
- * @package    block_znanium_com
- * @copyright  2015 Vadim Dvorovenko
+ * @package    block_biblioclub_ru
+ * @copyright  2020 Pavel Lobanov
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -26,24 +26,24 @@ require_once('../../config.php');
 
 require_login();
 $context = context_system::instance();
-require_capability('block/znanium_com:viewstats', $context);
+require_capability('block/biblioclub_ru:viewstats', $context);
 
-$PAGE->set_url(new moodle_url('/blocks/znanium_com/statistics.php'));
+$PAGE->set_url(new moodle_url('/blocks/biblioclub_ru/statistics.php'));
 $PAGE->set_context($context);
-$PAGE->set_title(get_string('statistics', 'block_znanium_com'));
-$PAGE->set_heading(get_string('statistics', 'block_znanium_com'));
+$PAGE->set_title(get_string('statistics', 'block_biblioclub_ru'));
+$PAGE->set_heading(get_string('statistics', 'block_biblioclub_ru'));
 $PAGE->set_pagelayout('report');
 
 echo $OUTPUT->header();
 
 $sql = "SELECT MIN(time) AS time
-        FROM {block_znanium_com_visits}";
+        FROM {block_biblioclub_ru_visits}";
 $timefirst = $DB->get_field_sql($sql);
 if ($timefirst) {
 
     $table = new html_table();
     $table->width = 'auto';
-    $table->head = array(get_string('month', 'block_znanium_com'), get_string('visits', 'block_znanium_com'));
+    $table->head = array(get_string('month', 'block_biblioclub_ru'), get_string('visits', 'block_biblioclub_ru'));
     $table->align = array('center', 'center');
 
     $date = usergetdate(time());
@@ -59,7 +59,7 @@ if ($timefirst) {
 
         $monthname = userdate($timestart, '%B %Y');
         $sql = "SELECT COUNT(id) AS count_id
-            FROM {block_znanium_com_visits}
+            FROM {block_biblioclub_ru_visits}
             WHERE time >= :timestart AND time < :timeend";
         $params = array(
             'timestart' => $timestart,

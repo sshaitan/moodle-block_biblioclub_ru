@@ -15,22 +15,22 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Authentication on znanium.com
+ * Authentication on biblioclub.ru
  *
- * @package    block_znanium_com
- * @copyright  2014 Vadim Dvorovenko
+ * @package    block_biblioclub_ru
+ * @copyright  2020 Pavel Lobanov
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-namespace block_znanium_com\event;
+namespace block_biblioclub_ru\event;
 
 defined('MOODLE_INTERNAL') || die();
 
 /**
  * Event class for site visit
  *
- * @package    block_znanium_com
- * @copyright  2015 Vadim Dvorovenko
+ * @package    block_biblioclub_ru
+ * @copyright  2020 Pavel Lobanov
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class link_used extends \core\event\base {
@@ -61,7 +61,7 @@ class link_used extends \core\event\base {
      * @return string
      */
     public static function get_name() {
-        return get_string('eventlinkused', 'block_znanium_com');
+        return get_string('eventlinkused', 'block_biblioclub_ru');
     }
 
     /**
@@ -70,7 +70,7 @@ class link_used extends \core\event\base {
      * @return string
      */
     public function get_description() {
-        return "The user with id '{$this->userid}' used link to authenticate on znanium.com.";
+        return "The user with id '{$this->userid}' used link to authenticate on biblioclub.ru.";
     }
 
 }

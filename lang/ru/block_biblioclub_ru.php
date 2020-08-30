@@ -15,26 +15,26 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Authentication on znanium.com
+ * Authentication on biblioclub.ru
  *
- * @package    block_znanium_com
- * @copyright  2014 Vadim Dvorovenko
+ * @package    block_biblioclub_ru
+ * @copyright  2020 Pavel Lobanov
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-$string['defaultlink'] = 'Перейти на сайт ЭБС Znanium';
-$string['defaulttitle'] = 'ЭБС Znanium';
+$string['defaultlink'] = 'Перейти на сайт ЭБС Biblioclub';
+$string['defaulttitle'] = 'ЭБС Biblioclub';
 $string['domain'] = 'Домен';
-$string['eventlinkused'] = 'Осуществлен преход на сайт ЭБС Znanium';
+$string['eventlinkused'] = 'Осуществлен преход на сайт ЭБС Biblioclub';
 $string['link'] = 'Текст ссылки';
 $string['month'] = 'Месяц';
-$string['pluginname'] = 'Аутентификация на сайте ЭБС Znanium';
+$string['pluginname'] = 'Аутентификация на сайте ЭБС Biblioclub';
 $string['privacy:metadata'] = 'Плагин не хранит персональные данные.';
 $string['secretkey'] = 'Секретный ключ';
 $string['statistics'] = 'Статистика';
 $string['title'] = 'Заголовок блока';
 $string['visits'] = 'Число переходов';
-$string['znanium_com:addinstance'] = 'Добавлять блок ЭБС Znanium';
-$string['znanium_com:myaddinstance'] = 'Добавлять блок ЭБС Znanium на домашнюю страницу';
-$string['znanium_com:use'] = 'Использовать блок для перехода на сайт ЭБС Znanium';
-$string['znanium_com:viewstats'] = 'Просматривать статистику переходов';
+$string['biblioclub_ru:addinstance'] = 'Добавлять блок ЭБС Biblioclub';
+$string['biblioclub_ru:myaddinstance'] = 'Добавлять блок ЭБС Biblioclub на домашнюю страницу';
+$string['biblioclub_ru:use'] = 'Использовать блок для перехода на сайт ЭБС Biblioclub';
+$string['biblioclub_ru:viewstats'] = 'Просматривать статистику переходов';

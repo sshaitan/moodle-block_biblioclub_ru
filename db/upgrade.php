@@ -15,10 +15,10 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Authentication on znanium.com
+ * Authentication on biblioclub.ru
  *
- * @package    block_znanium_com
- * @copyright  2015 Vadim Dvorovenko
+ * @package    block_biblioclub_ru
+ * @copyright  2020 Pavel Lobanov
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -31,41 +31,41 @@ defined('MOODLE_INTERNAL') || die();
  * @param object $block
  * @return void
  */
-function xmldb_block_znanium_com_upgrade($oldversion, $block) {
+function xmldb_block_biblioclub_ru_upgrade($oldversion, $block) {
     global $DB;
 
     $dbman = $DB->get_manager(); // Loads ddl manager and xmldb classes.
 
     if ($oldversion < 2015022500) {
 
-        // Define table block_znanium_com_visits to be created.
-        $table = new xmldb_table('block_znanium_com_visits');
+        // Define table block_biblioclub_ru_visits to be created.
+        $table = new xmldb_table('block_biblioclub_ru_visits');
 
-        // Adding fields to table block_znanium_com_visits.
+        // Adding fields to table block_biblioclub_ru_visits.
         $table->add_field('id', XMLDB_TYPE_INTEGER, '10', null, XMLDB_NOTNULL, XMLDB_SEQUENCE, null);
         $table->add_field('time', XMLDB_TYPE_INTEGER, '10', null, XMLDB_NOTNULL, null, null);
         $table->add_field('userid', XMLDB_TYPE_INTEGER, '10', null, XMLDB_NOTNULL, null, null);
         $table->add_field('contextid', XMLDB_TYPE_INTEGER, '10', null, XMLDB_NOTNULL, null, null);
 
-        // Adding keys to table block_znanium_com_visits.
+        // Adding keys to table block_biblioclub_ru_visits.
         $table->add_key('primary', XMLDB_KEY_PRIMARY, array('id'));
         $table->add_key('userid', XMLDB_KEY_FOREIGN, array('userid'), 'user', array('id'));
         $table->add_key('contextid', XMLDB_KEY_FOREIGN, array('contextid'), 'context', array('id'));
 
-        // Adding indexes to table block_znanium_com_visits.
+        // Adding indexes to table block_biblioclub_ru_visits.
         $table->add_index('time', XMLDB_INDEX_NOTUNIQUE, array('time'));
 
-        // Conditionally launch create table for block_znanium_com_visits.
+        // Conditionally launch create table for block_biblioclub_ru_visits.
         if (!$dbman->table_exists($table)) {
             $dbman->create_table($table);
         }
 
-        // Znanium_com savepoint reached.
-        upgrade_block_savepoint(true, 2015022500, 'znanium_com');
+        // Biblioclub_ru savepoint reached.
+        upgrade_block_savepoint(true, 2015022500, 'biblioclub_ru');
     }
 
     if ($oldversion < 2015110800) {
-        upgrade_block_savepoint(true, 2015110800, 'znanium_com');
+        upgrade_block_savepoint(true, 2015110800, 'biblioclub_ru');
     }
 
     return true;

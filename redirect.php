@@ -15,10 +15,10 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Authentication on znanium.com
+ * Authentication on biblioclub.ru
  *
- * @package    block_znanium_com
- * @copyright  2014 Vadim Dvorovenko
+ * @package    block_biblioclub_ru
+ * @copyright  2020 Pavel Lobanov
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -32,7 +32,7 @@ if ($contextid) {
     $context = context_system::instance();
     $contextid = $context->id;
 }
-require_capability('block/znanium_com:use', $context);
+require_capability('block/biblioclub_ru:use', $context);
 
 $documentid = optional_param('documentid', null, PARAM_INT);
 $page = optional_param('page', null, PARAM_INT);
@@ -40,17 +40,17 @@ $page = optional_param('page', null, PARAM_INT);
 $params = array(
     'contextid' => $contextid
 );
-$event = \block_znanium_com\event\link_used::create($params);
+$event = \block_biblioclub_ru\event\link_used::create($params);
 $event->trigger();
 
 $visit = new stdClass();
 $visit->time = time();
 $visit->userid = $USER->id;
 $visit->contextid = $contextid;
-$DB->insert_record('block_znanium_com_visits', $visit);
+$DB->insert_record('block_biblioclub_ru_visits', $visit);
 
-$secretkey = get_config('block_znanium_com', 'secretkey');
-$domain = get_config('block_znanium_com', 'domain');
+$secretkey = get_config('block_biblioclub_ru', 'secretkey');
+$domain = get_config('block_biblioclub_ru', 'domain');
 
 $timestamp = gmdate('YmdHis');
 $signature = md5($domain . $USER->username . $timestamp . $secretkey);
@@ -70,5 +70,5 @@ if ($documentid) {
         $params['page'] = $page;
     }
 }
-$url = new moodle_url('https://znanium.com/sso', $params);
+$url = new moodle_url('https://biblioclub.ru/index.php', $params);
 redirect($url);

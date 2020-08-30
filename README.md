@@ -1,20 +1,30 @@
-Authentication on znanium.com
+Seamless authentication in biblioclub.ru from Moodle Learning Platform 
 ===============================
 
-This block is intended for use with russian digital library system Znanium, 
-so all documentations is provided in russian language.
+This is fork of original repo by https://github.com/vadimonus/moodle-block_znanium_com
+
+It's contains a code of plugin for Moodle Platform which enable seamless authentication
+of Moodle Platform users in russian digital library system biblioclub.ru. 
 
 Author
 ------
 Vadim Dvorovenko (Vadimon@mail.ru)
+Pavel Lobanov (pavel_lobanov@directmedia.ru)
 
-Блок аутентификации на сайте znanium.com
+Плагин бесшовной аутентификации на сайте biblioclub.ru из Moodle
 ========================================
 
-Блок предназначен для автоматическей аутентификации пользователей moodle на сайте znanium.com.
+Это форк оригинального репо https://github.com/vadimonus/moodle-block_znanium_com
 
-Данные для авторизации (домен и секретный ключ) зарегистрированные пользователи ЭБС могут получить,
-написав по адресу programmer@infra-m.ru
+Данный репозитарий содержит исходный код плагина для платформы Moodle.
+Плагин реализует возможность добавления блока в платформу Moodle. Блок содержит специальную ссылку для 
+пользователей при переходе по которой, пользователь автоматически авторизуется платформой ЭБС Библиоклуб.
+
+При настройке плагина треубется указать данные авторизации:
+- домен
+- секретный ключ
+
+Эти данные вы можете получить обратившись в техническую поддержку biblioclub.ru.
 
 Системные требования
 --------------------
@@ -22,20 +32,13 @@ Vadim Dvorovenko (Vadimon@mail.ru)
 
 Установка
 ---------
-Скопируйте папку znanium_com в каталог /blocks вашей системы Moodle и посетите страницу уведомлений администратора 
-для завершения установки.
+Скачайте zip-архив со страницы релизов. Установите плагин через менеджер плагинов Moodle от администратора.
 
-Автор
+Автор оригинального кода
 ------
 Вадим Дворовенко (Vadimon@mail.ru)
 
-Ссылки
+Автор форка
 ------
-- ЭБС Znanium: http://znanium.com/
+Павел Лобанов (pavel_lobanov@directmedia.ru)
 
-История изменений
------------------
-- Релиз 2017-04-16:
-    - Первый публичный релиз.
-- Релиз 2020-06-06:
-    - Поддержка нового API бесшовного перехода

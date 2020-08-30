@@ -14,11 +14,12 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
+
 /**
- * Authentication on znanium.com
+ * Authentication on biblioclub.ru
  *
- * @package    block_znanium_com
- * @copyright  2014 Vadim Dvorovenko
+ * @package    block_biblioclub_ru
+ * @copyright  2020 Pavel Lobanov
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -27,18 +28,18 @@ defined('MOODLE_INTERNAL') || die();
 /**
  * Main block class
  *
- * @package    block_znanium_com
- * @copyright  2014 Vadim Dvorovenko
+ * @package    block_biblioclub_ru
+ * @copyright  2020 Pavel Lobanov
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class block_znanium_com extends block_base {
+class block_biblioclub_ru extends block_base {
 
     /**
      * Standard block API function for initializing block instance.
      * @return void
      */
     public function init() {
-        $this->title = get_string('pluginname', 'block_znanium_com');
+        $this->title = get_string('pluginname', 'block_biblioclub_ru');
     }
 
     /**
@@ -47,11 +48,11 @@ class block_znanium_com extends block_base {
      * For instance: if your block will have different title's depending on location (site, course, blog, etc)
      */
     public function specialization() {
-        $title = get_config('block_znanium_com', 'title');
+        $title = get_config('block_biblioclub_ru', 'title');
         if ($title !== false) {
             $this->title = $title;
         } else {
-            $this->title = get_string('defaulttitle', 'block_znanium_com');
+            $this->title = get_string('defaulttitle', 'block_biblioclub_ru');
         }
     }
 
@@ -104,20 +105,20 @@ class block_znanium_com extends block_base {
 
         $this->content = new stdClass;
         $this->content->footer = '';
-        if (has_capability('block/znanium_com:use', $this->page->context)) {
-            $text = get_config('block_znanium_com', 'link');
+        if (has_capability('block/biblioclub_ru:use', $this->page->context)) {
+            $text = get_config('block_biblioclub_ru', 'link');
             if (!$text) {
-                $text = get_string('defaultlink', 'block_znanium_com');
+                $text = get_string('defaultlink', 'block_biblioclub_ru');
             }
-            $url = new moodle_url('/blocks/znanium_com/redirect.php', array('contextid' => $this->page->context->id));
+            $url = new moodle_url('/blocks/biblioclub_ru/redirect.php', array('contextid' => $this->page->context->id));
             $link = new action_link($url, $text);
             $link->attributes = array('target' => '_blank');
             $this->content->text = html_writer::div($OUTPUT->render($link));
         }
 
-        if (has_capability('block/znanium_com:viewstats', context_system::instance())) {
-            $text = get_string('statistics', 'block_znanium_com');
-            $url = new moodle_url('/blocks/znanium_com/statistics.php');
+        if (has_capability('block/biblioclub_ru:viewstats', context_system::instance())) {
+            $text = get_string('statistics', 'block_biblioclub_ru');
+            $url = new moodle_url('/blocks/biblioclub_ru/statistics.php');
             $link = new action_link($url, $text);
             $this->content->text .= html_writer::div($OUTPUT->render($link));
         }
