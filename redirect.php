@@ -65,8 +65,8 @@ $login = $USER->username;
 $sign = md5($user_id . $secretkey . $timestamp);
 
 if (strlen($login) < $BIBLIOCLUB_LOGIN_MIN_LEN) {
-    $login .= '_' . substr(str_shuffle('0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'), 0,
-            $BIBLIOCLUB_LOGIN_MIN_LEN - strlen($login));
+    $sub_id = $user_id  + 10000;
+    $login .= '_' . $sub_id ;
 }
 
 $params = array(
