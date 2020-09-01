@@ -22,6 +22,9 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+$BIBLIOCLUB_USER_TYPE = 6;
+$BIBLIOCLUB_LOGIN_MIN_LEN = 6;
+
 require_once("../../config.php");
 require_login();
 
@@ -56,10 +59,15 @@ $domain = get_config('block_biblioclub_ru', 'domain');
 
 $timestamp = time();
 // FIXME: using student type by default
-$user_type = 6;
+$user_type = $BIBLIOCLUB_USER_TYPE;
 $user_id = $USER->id;
 $login = $USER->username;
 $sign = md5($user_id . $secretkey . $timestamp);
+
+if (strlen($login) < $BIBLIOCLUB_LOGIN_MIN_LEN) {
+    $login .= '_' . substr(str_shuffle('0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'), 0,
+            $BIBLIOCLUB_LOGIN_MIN_LEN - strlen($login));
+}
 
 $params = array(
     'page' => 'main_ub_red',
@@ -71,6 +79,7 @@ $params = array(
     'sign' => $sign,
     'first_name' => $USER->firstname,
     'last_name' => $USER->lastname
+
 );
 if ($USER->middlename) {
     $params['parent_name'] = $USER->middlename;
