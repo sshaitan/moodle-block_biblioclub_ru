@@ -9,7 +9,6 @@ of Moodle Platform users in russian digital library system biblioclub.ru.
 Author
 ------
 Vadim Dvorovenko (Vadimon@mail.ru)
-Pavel Lobanov (pavel_lobanov@directmedia.ru)
 
 Плагин бесшовной аутентификации на сайте biblioclub.ru из Moodle
 ========================================

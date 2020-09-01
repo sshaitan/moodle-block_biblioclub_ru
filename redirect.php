@@ -26,6 +26,7 @@ require_once("../../config.php");
 require_login();
 
 $contextid = optional_param('contextid', null, PARAM_INT);
+
 if ($contextid) {
     $context = context::instance_by_id($contextid);
 } else {
@@ -34,8 +35,9 @@ if ($contextid) {
 }
 require_capability('block/biblioclub_ru:use', $context);
 
-$documentid = optional_param('documentid', null, PARAM_INT);
-$page = optional_param('page', null, PARAM_INT);
+// not needed for biblioclub.ru
+//$documentid = optional_param('documentid', null, PARAM_INT);
+//$page = optional_param('page', null, PARAM_INT);
 
 $params = array(
     'contextid' => $contextid
@@ -52,23 +54,26 @@ $DB->insert_record('block_biblioclub_ru_visits', $visit);
 $secretkey = get_config('block_biblioclub_ru', 'secretkey');
 $domain = get_config('block_biblioclub_ru', 'domain');
 
-$timestamp = gmdate('YmdHis');
-$signature = md5($domain . $USER->username . $timestamp . $secretkey);
+$timestamp = time();
+// FIXME: using student type by default
+$user_type = 6;
+$user_id = $USER->id;
+$login = $USER->username;
+$sign = md5($user_id . $secretkey . $timestamp);
+
 $params = array(
+    'page' => 'main_ub_red',
+    'action' => 'auth_for_org',
     'domain' => $domain,
-    'username' => $USER->username,
-    'gmt' => $timestamp,
-    'token' => $signature,
-    'fname' => $USER->firstname,
-    'lname' => $USER->lastname);
+    'user_id' => $user_id,
+    'login' => $login,
+    'time' => $timestamp,
+    'sign' => $sign,
+    'first_name' => $USER->firstname,
+    'last_name' => $USER->lastname
+);
 if ($USER->middlename) {
-    $params['mname'] = $USER->middlename;
-}
-if ($documentid) {
-    $params['did'] = $documentid;
-    if ($page) {
-        $params['page'] = $page;
-    }
+    $params['parent_name'] = $USER->middlename;
 }
 $url = new moodle_url('https://biblioclub.ru/index.php', $params);
 redirect($url);
