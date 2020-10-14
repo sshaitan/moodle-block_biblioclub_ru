@@ -78,7 +78,8 @@ $params = array(
     'time' => $timestamp,
     'sign' => $sign,
     'first_name' => $USER->firstname,
-    'last_name' => $USER->lastname
+    'last_name' => $USER->lastname,
+    'utf' => 1,
 
 );
 if ($USER->middlename) {
