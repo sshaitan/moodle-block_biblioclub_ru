@@ -85,5 +85,5 @@ $params = array(
 if ($USER->middlename) {
     $params['parent_name'] = $USER->middlename;
 }
-$url = new moodle_url('https://biblioclub.ru/index.php', $params);
+$url = new moodle_url('https://old.biblioclub.ru/index.php', $params);
 redirect($url);
