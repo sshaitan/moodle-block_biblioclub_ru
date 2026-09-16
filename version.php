@@ -25,7 +25,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = 'block_biblioclub_ru';    // Full name of the plugin (used for diagnostics).
-$plugin->version   = 2026091400;             // The current plugin version (Date: YYYYMMDDXX).
+$plugin->version   = 2026091600;             // The current plugin version (Date: YYYYMMDDXX).
 $plugin->requires  = 2014051200;             // Requires this Moodle version.
 $plugin->maturity = MATURITY_STABLE;         // Maturity level of this plugin version.
-$plugin->release = '2026-09-14';             // Human readable version name.
+$plugin->release = '2026-09-16';             // Human readable version name.

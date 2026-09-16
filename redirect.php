@@ -62,7 +62,7 @@ $timestamp = time();
 $user_type = $BIBLIOCLUB_USER_TYPE;
 $user_id = $USER->id;
 $login = $USER->username;
-$sign = md5($user_id . $secretkey . $timestamp);
+$sign = hash('sha512', $user_id . $secretkey . $timestamp);
 
 if (strlen($login) < $BIBLIOCLUB_LOGIN_MIN_LEN) {
     $sub_id = $user_id  + 10000;
@@ -70,7 +70,7 @@ if (strlen($login) < $BIBLIOCLUB_LOGIN_MIN_LEN) {
 }
 
 $params = array(
-    'page' => 'main_ub_red',
+    'page' => 'main',
     'action' => 'auth_for_org',
     'domain' => $domain,
     'user_id' => $user_id,
@@ -85,5 +85,5 @@ $params = array(
 if ($USER->middlename) {
     $params['parent_name'] = $USER->middlename;
 }
-$url = new moodle_url('https://old.biblioclub.ru/index.php', $params);
+$url = new moodle_url('https://biblioclub.ru/index.php', $params);
 redirect($url);
