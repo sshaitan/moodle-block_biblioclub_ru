@@ -100,10 +100,15 @@ class block_biblioclub_ru extends block_base {
      *
      * @return stdObject
      */
-    public function get_content () {
+    public function get_content() {
         global $OUTPUT;
 
+        if ($this->content !== null) {
+            return $this->content;
+        }
+
         $this->content = new stdClass;
+        $this->content->text = '';
         $this->content->footer = '';
         if (has_capability('block/biblioclub_ru:use', $this->page->context)) {
             $text = get_config('block_biblioclub_ru', 'link');
@@ -112,7 +117,7 @@ class block_biblioclub_ru extends block_base {
             }
             $url = new moodle_url('/blocks/biblioclub_ru/redirect.php', array('contextid' => $this->page->context->id));
             $link = new action_link($url, $text);
-            $link->attributes = array('target' => '_blank');
+            $link->attributes['target'] = '_blank';
             $this->content->text = html_writer::div($OUTPUT->render($link));
         }
 

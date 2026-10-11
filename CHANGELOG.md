@@ -1,5 +1,15 @@
 # Changelog
 
+## 2026-10-12 - v0.0.7
+
+- Addressed Moodle review #1: return cached block content before rendering again.
+- Initialise empty text for users without block capabilities; preserve Moodle link attributes.
+- Addressed Moodle review #2: declare visit-table and external authentication metadata;
+  implement context/user discovery, scoped export and all privacy deletion methods.
+- Added privacy isolation and rendering regression tests.
+- Minimum Moodle version is now 3.5.3 for the Privacy user-list API.
+- Disabled automatic Moodle Plugins Directory submission on tag push.
+
 ## 2026-09-16 - v0.0.6
 
 - Added full seamless-login support for the redesigned `biblioclub.ru`
